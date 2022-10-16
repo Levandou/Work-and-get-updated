@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tinkoffpractice.MainActivity">
+    tools:context="com.example.tinkoffpractice.MainActivity"
+    android:background="#f7f7f7">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_category"
@@ -13,6 +14,6 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp"
-        tools:listitem="@layout/item_news" />
+        tools:listitem="@layout/new_item_news" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

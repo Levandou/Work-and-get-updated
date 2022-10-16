@@ -23,7 +23,13 @@ class PagingSourceNews(
         val position = params.key ?: 0
         val pageSize = params.loadSize
         return try {
-            val listNews = apiService.getPageOfNews2(pageSize*position, pageSize)
+            val listNews = mutableListOf<News>()
+            for (i in 0..20){
+                listNews.add(News(i,"наконец-то мы открылись ла вфы выф вфы вы выф",
+                    "сегодня у нас было открытие ла ла ал алалаалла",
+                "", i*10,"05.09.22"))
+            }
+         //   val listNews = apiService.getPageOfNews2(pageSize*position, pageSize)
             LoadResult.Page(
                 data = listNews,
                 nextKey = if (pageSize > listNews.size) null else position + 1,

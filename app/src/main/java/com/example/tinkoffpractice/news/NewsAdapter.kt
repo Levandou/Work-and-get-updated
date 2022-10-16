@@ -15,14 +15,14 @@ class NewsAdapter: PagingDataAdapter<News,NewsAdapter.NewsViewHolder >(
     NewsDiffCallback()
 ) {
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        holder.nameOfOffice.text = getItem(position)?.title
+        holder.nameOfOffice.text = "#${getItem(position)?.officeId }00"
         holder.dateOfCreation.text = getItem(position)?.dataOfCreation
-        holder.text.text = getItem(position)?.text
+        holder.text.text = getItem(position)?.title
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_news,
+            R.layout.new_item_news,
             parent,
             false
         )

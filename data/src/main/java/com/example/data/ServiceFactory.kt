@@ -1,6 +1,10 @@
 package com.example.data
 
+import android.os.Build
+import com.example.domain.Environment
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
@@ -28,14 +32,12 @@ abstract class ServiceFactory(
         converterFactory: Converter.Factory,
         callAdapterFactory: CallAdapter.Factory,
         baseUrl: String
-    ): Retrofit {
-        val builder = Retrofit.Builder()
-            .client(client)
-            .addConverterFactory(converterFactory)
-            .addCallAdapterFactory(callAdapterFactory)
-            .baseUrl(baseUrl)
-        return builder.build()
-    }
+    ) = Retrofit.Builder()
+        .client(client)
+        .addConverterFactory(converterFactory)
+        .addCallAdapterFactory(callAdapterFactory)
+        .baseUrl(baseUrl)
+        .build()
 
     private fun <T> create(
         serviceType: Class<T>,
@@ -50,9 +52,11 @@ abstract class ServiceFactory(
 
     private fun getHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
-        interceptors().forEach { interceptor -> builder.addInterceptor(interceptor) }
-        builder.addInterceptor(HttpLoggingInterceptor().apply { level = logLevel })
-            .connectTimeout(120, TimeUnit.SECONDS)
+
+        interceptors().forEach { builder.addInterceptor(it) }
+        builder.addInterceptor(HttpLoggingInterceptor().apply {
+            level = logLevel
+        }).connectTimeout(120, TimeUnit.SECONDS)
             .writeTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
         return builder.build()

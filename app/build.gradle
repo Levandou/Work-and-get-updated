@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -38,7 +39,7 @@ dependencies {
     implementation project(path: ':data')
     implementation project(path: ':domain')
 
-    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -57,8 +58,20 @@ dependencies {
     def retrofit_version ='2.9.0'
     implementation ("com.squareup.retrofit2:retrofit:$retrofit_version")
     implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
     //Kotlin coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+
+    //Paging3
+    implementation 'androidx.paging:paging-runtime-ktx:3.1.1'
+
+    def arch_room_version = '2.4.3'
+    kapt "androidx.room:room-compiler:$arch_room_version"
+    implementation "androidx.room:room-ktx:$arch_room_version"
+    implementation "androidx.room:room-runtime:$arch_room_version"
+
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="#383838">
+
+    <TextView
+        android:id="@+id/title_office"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="10px"
+        android:text="Офис #1234"
+        android:textColor="#FFFFFF"/>
+
+    <ImageView
+        android:id="@+id/iv_news"
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="65px"
+        android:layout_marginBottom="20px" />
+
+    <ImageView
+        android:layout_width="55px"
+        android:layout_height="55px"
+        android:layout_marginLeft="900px"
+        android:layout_marginTop="10px"/>
+
+    <TextView
+        android:id="@+id/text_news"
+        android:layout_width="300px"
+        android:layout_height="270px"
+        android:layout_marginLeft="350px"
+        android:layout_marginTop="75px"
+        android:text="Переезжаем..."
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:layout_width="100px"
+        android:layout_height="50px"
+        android:layout_marginLeft="960px"
+        android:layout_marginTop="10px"
+        android:text="100"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/news_date_creation"
+        android:layout_width="200px"
+        android:layout_height="50px"
+        android:layout_marginLeft="840px"
+        android:layout_marginTop="300px"
+        android:text="21.03.2022"
+        android:textColor="#FFFFFF"/>
+</FrameLayout>

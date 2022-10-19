@@ -54,8 +54,8 @@ class MainActivity : AppCompatActivity() {
         rv.addItemDecoration(object : RecyclerView.ItemDecoration() {
 
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-                outRect.left = 30
-                outRect.right = 30
+                outRect.left = 70
+                outRect.right = -60
                 outRect.top = 30
                 outRect.bottom = 30
             }

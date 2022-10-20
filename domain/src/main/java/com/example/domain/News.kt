@@ -1,20 +1,22 @@
 package com.example.domain
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-//@Entity(tableName = "news")
-data class  News(
-  //  @PrimaryKey
-    @field:SerializedName("id")
+@Entity(tableName = "news")
+data class News(
+    @PrimaryKey
     var id: Int,
-    @field:SerializedName("title")
     var title: String?,
-    @field:SerializedName("text")
     var text: String?,
-    @field:SerializedName("photoPath")
     var urlPhoto: String?,
-    @field:SerializedName("officeId")
     var officeId: Int?,
-    @field:SerializedName("dataOfCreation")
-    var dataOfCreation: String
+    val cityOfOffice: Int?,
+    val addressOfOffice: String? = "",
+    var dataOfCreation: String? = "",
+    var tagId: Int?,
+    var tagTitle: String? = "",
+
+    var isPointOpened: Boolean = false
 )

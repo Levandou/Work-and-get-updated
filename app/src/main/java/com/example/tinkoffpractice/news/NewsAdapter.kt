@@ -10,14 +10,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.News
 import com.example.presentation.R
+import java.util.*
 
-class NewsAdapter: PagingDataAdapter<News,NewsAdapter.NewsViewHolder >(
+class NewsAdapter(private val onItemClick: (News?) -> Unit) : PagingDataAdapter<News, NewsAdapter.NewsViewHolder>(
     NewsDiffCallback()
 ) {
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        holder.nameOfOffice.text = "#${getItem(position)?.officeId }00"
+        holder.nameOfOffice.text = getItem(position)?.tagTitle
         holder.dateOfCreation.text = getItem(position)?.dataOfCreation
         holder.text.text = getItem(position)?.title
+
+        holder.itemView.setOnClickListener {
+            onItemClick(getItem(position))
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
@@ -38,7 +43,6 @@ class NewsAdapter: PagingDataAdapter<News,NewsAdapter.NewsViewHolder >(
 
     class NewsDiffCallback : DiffUtil.ItemCallback<News>() {
         override fun areItemsTheSame(oldItem: News, newItem: News) = oldItem.id == newItem.id
-
         override fun areContentsTheSame(oldItem: News, newItem: News) = oldItem == newItem
     }
 }

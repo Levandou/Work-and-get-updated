@@ -20,22 +20,24 @@ class MainViewModel(
     val newsPage = MutableLiveData<Flow<PagingData<News>>>()
 
     init {
-        setValue()
+/*        newsRepository.setNewsInDb(News(
+            1,
+            "sda",
+            "dasdasas",
+            "",
+            2,
+            2,
+            "asddas",
+            "12,21,1221",
+            2,
+            "asddasdasdas"
+        ))*/
         loadCategoryList()
     }
 
     fun loadCategoryList() {
         viewModelScope.launch(Dispatchers.IO) {
             newsPage.postValue(newsRepository.getPageOfNews().cachedIn(this))
-        }
-    }
-
-    private fun setValue() {
-
-        viewModelScope.launch(Dispatchers.IO) {
-            news.postValue(newsRepository.getNews())
-
-            newsList.postValue(newsRepository.getListNews())
         }
     }
 }

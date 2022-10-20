@@ -8,9 +8,12 @@ import com.example.domain.News
 
 @Dao
 interface NewsDao {
-   /* @Query("SELECT * FROM news")
-    fun getNewsList(): List<News>*/
+    @Query("SELECT * FROM news")
+    suspend fun getNewsList(): List<News>
+
+    @Query("DELETE FROM news")
+    suspend fun removeAllFromDbNews()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNews(news: News)
+    suspend fun insertNews(news: News)
 }

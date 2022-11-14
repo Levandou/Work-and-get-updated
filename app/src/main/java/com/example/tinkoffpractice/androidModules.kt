@@ -7,6 +7,7 @@ import com.example.data.okHttp.NoConnectionPendingException
 import com.example.data.paging.PagingSourceNews
 import com.example.domain.NewsRepository
 import com.example.domain.mappers.NewsMapper
+import com.example.tinkoffpractice.map.NewsViewModel
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +23,7 @@ import kotlin.coroutines.coroutineContext
 
 val mainModule = module {
     viewModel { MainViewModel(get()) }
+    viewModel { NewsViewModel(get()) }
 }
 
 val dataModule = module {

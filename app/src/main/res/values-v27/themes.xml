@@ -5,7 +5,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/menu</item>
         <item name="colorPrimaryVariant">@color/up</item>
-        <item name="android:navigationBarColor">@android:color/white</item>
+        <item name="android:navigationBarColor">@color/menu</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->

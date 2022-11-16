@@ -23,5 +23,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.ll_map).setOnClickListener {
             navController.navigate(R.id.mapFragment)
         }
+
+        findViewById<LinearLayout>(R.id.ll_news).setOnClickListener {
+            navController.navigate(R.id.newsFragment2)
+        }
     }
 }

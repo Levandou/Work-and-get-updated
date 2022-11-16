@@ -16,9 +16,12 @@ class NewsViewModel(
 ) : ViewModel() {
     val newsPage = MutableLiveData<Flow<PagingData<News>>>()
 
-    fun loadCategoryList() {
-        viewModelScope.launch(Dispatchers.IO) {
-            newsPage.postValue(newsRepository.getPageOfNews().cachedIn(this))
-        }
+    fun loadCategoryList(): Flow<PagingData<News>> {
+          return newsRepository.getPageOfNews().cachedIn(viewModelScope)
+
     }
+
+    /*init {
+        loadCategoryList()
+    }*/
 }

@@ -32,12 +32,12 @@ class MainViewModel(
             2,
             "asddasdasdas"
         ))*/
-        loadCategoryList()
+     //   loadCategoryList()
     }
 
-    fun loadCategoryList() {
+ /*   fun loadCategoryList() {
         viewModelScope.launch(Dispatchers.IO) {
             newsPage.postValue(newsRepository.getPageOfNews().cachedIn(this))
         }
-    }
+    }*/
 }

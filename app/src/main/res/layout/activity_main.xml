@@ -8,6 +8,7 @@
     tools:context="com.example.tinkoffpractice.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
+        android:elevation="10dp"
         android:id="@+id/fragment_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
@@ -16,8 +17,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_menu"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/main_navigation"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout="@layout/fragment_news2" />
 
     <FrameLayout
         android:id="@+id/bottom_menu"

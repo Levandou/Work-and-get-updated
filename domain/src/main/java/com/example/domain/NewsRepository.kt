@@ -8,7 +8,7 @@ interface NewsRepository {
 
     suspend fun getListNews(): List<News>
 
-    suspend fun getPageOfNews(): Flow<PagingData<News>>
+    fun getPageOfNews(): Flow<PagingData<News>>
 
    // fun setNewsInDb(news: News)
 }

@@ -47,7 +47,6 @@ class PagingSourceNews(
             )
         } catch (e: Exception) {
             LoadResult.Error(e)
-          //  throw e
         }
     }
 
@@ -76,8 +75,6 @@ class PagingSourceNews(
             newList.forEach {
                 newsDao.insertNews(it)
             }
-       /*     newsDao.insertNews(News(2,"ds","asddas","adsasd",2,2,"sad",
-            "das",2,"dasdas"))*/
         }
     }
 }

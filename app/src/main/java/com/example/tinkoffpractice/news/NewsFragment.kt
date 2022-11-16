@@ -18,18 +18,13 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NewsFragment : Fragment() {
     lateinit var rv: RecyclerView
-    private val viewModel by viewModel<MainViewModel>()
+    private val viewModel by viewModel<NewsViewModel>()
     private lateinit var adapter: NewsAdapter
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
 

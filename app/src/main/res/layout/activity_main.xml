@@ -17,7 +17,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_menu"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/main_navigation"
-        tools:layout="@layout/fragment_news2" />
+        tools:layout="@layout/fragment_news" />
 
     <FrameLayout
         android:id="@+id/bottom_menu"

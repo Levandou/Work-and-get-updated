@@ -18,7 +18,6 @@ class NewsViewModel(
 
     fun loadCategoryList(): Flow<PagingData<News>> {
           return newsRepository.getPageOfNews().cachedIn(viewModelScope)
-
     }
 
     /*init {

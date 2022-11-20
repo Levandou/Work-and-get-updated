@@ -5,8 +5,10 @@ import com.example.data.RepositoryImpl
 import com.example.data.db.AppDatabase
 import com.example.data.okHttp.NoConnectionPendingException
 import com.example.data.paging.PagingSourceNews
+import com.example.domain.MapRepository
 import com.example.domain.NewsRepository
 import com.example.domain.mappers.NewsMapper
+import com.example.tinkoffpractice.map.MapViewModel
 import com.example.tinkoffpractice.news.NewsViewModel
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -21,10 +23,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 val mainModule = module {
     viewModel { MainViewModel(get()) }
     viewModel { NewsViewModel(get()) }
+    viewModel { MapViewModel(get()) }
 }
 
 val dataModule = module {
     factory<NewsRepository> { RepositoryImpl(get(), get(), get()) }
+
+    factory<MapRepository> { RepositoryImpl(get(), get(), get()) }
 
     single {
         HttpLoggingInterceptor().apply {

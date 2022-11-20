@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.presentation.R
 
+
 class MainActivity : AppCompatActivity() {
     lateinit var navController: NavController
 
@@ -21,11 +22,16 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         findViewById<LinearLayout>(R.id.ll_map).setOnClickListener {
+            /*val mapFragment = supportFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment
+            mapFragment.getMapAsync {
+
+            }*/
+         //   mapFragment.getMapAsync(this)
             navController.navigate(R.id.mapFragment)
         }
 
         findViewById<LinearLayout>(R.id.ll_news).setOnClickListener {
-            navController.navigate(R.id.newsFragment2)
+            navController.navigate(R.id.newsFragment)
         }
     }
 }

@@ -16,45 +16,52 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NewsFragment : Fragment() {
-    lateinit var rv: RecyclerView
+    private var rv: RecyclerView? = null
     private val viewModel by viewModel<NewsViewModel>()
-    private lateinit var adapter: NewsAdapter
+    private var adapter: NewsAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //setupRecyclerView()
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        rv = view.findViewById(R.id.rv_category)
+        rv = view.findViewById(R.id.rv_news)
         setupRecyclerView()
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.loadCategoryList().collectLatest{
-                adapter.submitData(it)
-            }
-        }
-
-        viewModel.newsPage.observe(viewLifecycleOwner) {
-            lifecycleScope.launch {
-                it.distinctUntilChanged().collectLatest { pagingData ->
-                    adapter.submitData(pagingData)
+        requireActivity().lifecycleScope.launch {
+            viewModel.loadCategoryList().distinctUntilChanged().collectLatest {
+                adapter?.let { ad->
+                    ad.submitData(it)
                 }
             }
         }
+
+        val a = adapter?.snapshot()
+        val b = 0
+
+     /*   viewModel.newsPage.observe(viewLifecycleOwner) {
+            lifecycleScope.launch {
+                it.distinctUntilChanged().collectLatest { pagingData ->
+                    adapter?.submitData(pagingData)
+                }
+            }
+        }*/
     }
 
     private fun setupRecyclerView() {
         adapter = NewsAdapter {
             DetailNewsDialog(it).show(requireActivity().supportFragmentManager, "tag")
         }
+        rv?.let {
+            it.adapter = adapter
+        }
 
-        rv.adapter = adapter//.withLoadStateFooter(NewsLoadStateAdapter { adapter.retry() })
-        rv.addItemDecoration(object : RecyclerView.ItemDecoration() {
+        rv?.adapter = adapter//.withLoadStateFooter(NewsLoadStateAdapter { adapter.retry() })
+        rv?.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                 outRect.left = 40
                 outRect.top = 20

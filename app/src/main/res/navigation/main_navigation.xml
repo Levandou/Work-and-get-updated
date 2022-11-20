@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/newsFragment2">
+    app:startDestination="@id/newsFragment">
 
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.tinkoffpractice.map.MapFragment"
         android:label="MapFragment" />
     <fragment
-        android:id="@+id/newsFragment2"
-        android:name="com.example.tinkoffpractice.news.NewsFragment2"
-        android:label="fragment_news2"
-        tools:layout="@layout/fragment_news2" />
+        android:id="@+id/newsFragment"
+        android:name="com.example.tinkoffpractice.news.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
 </navigation>

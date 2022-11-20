@@ -2,6 +2,7 @@ package com.example.data
 
 import com.example.domain.News
 import com.example.domain.NewsResponse
+import com.example.domain.Points
 import retrofit2.http.*
 
 interface ApiService {
@@ -31,4 +32,7 @@ interface ApiService {
         @Query("offset") offset: Int,
         @Query("limit") limit: Int
     ): List<NewsResponse>
+
+    @GET("MapPoints")
+    suspend fun getPoints(): List<Points>
 }

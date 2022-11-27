@@ -1,10 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.tinkoffpractice.map.PointDialogFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.tinkoffpractice.map.PointDialogFragment">
 
     <FrameLayout
         android:id="@+id/fl_image"
@@ -55,20 +55,20 @@
                 android:text="Переезд офиса"
                 android:textColor="@color/black"
                 android:textSize="24dp"
-                app:layout_constraintBottom_toTopOf="@id/text_of_news"
+                app:layout_constraintBottom_toTopOf="@id/text_of_point"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:layout_gravity="center_vertical|end"
-                android:justificationMode="inter_word"
-                android:id="@+id/text_of_news"
+                android:id="@+id/text_of_point"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
+                android:layout_gravity="center_vertical|end"
                 android:layout_marginHorizontal="27dp"
                 android:layout_marginTop="19dp"
+                android:fontFamily="@font/roboto_regular"
+                android:justificationMode="inter_word"
                 android:letterSpacing="0.07"
                 android:text="Мне осталась одна забава:
  Пальцы в рот — и веселый свист.

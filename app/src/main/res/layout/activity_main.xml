@@ -30,6 +30,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <View
+            android:id="@+id/back_choosed"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"

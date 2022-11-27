@@ -53,7 +53,7 @@ val dataModule = module {
                 )
             )
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
-            .baseUrl("http://217.114.156.125:5000/api/")
+            .baseUrl("http://91.146.14.63:5000/api/")
             .client(OkHttpClient.Builder().addInterceptor(NoConnectionPendingException(androidContext()))/*.addInterceptor(HttpLoggingInterceptor())*/.build())
             .build()
             .create(ApiService::class.java)

@@ -60,14 +60,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:layout_gravity="center_vertical|end"
-                android:justificationMode="inter_word"
                 android:id="@+id/text_of_news"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
+                android:layout_gravity="center_vertical|end"
                 android:layout_marginHorizontal="27dp"
                 android:layout_marginTop="19dp"
+                android:fontFamily="@font/roboto_regular"
+                android:justificationMode="inter_word"
                 android:letterSpacing="0.07"
                 android:text="Мне осталась одна забава:
  Пальцы в рот — и веселый свист.

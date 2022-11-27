@@ -10,6 +10,8 @@ import android.widget.FrameLayout
 import android.widget.ScrollView
 import androidx.annotation.RequiresApi
 import androidx.core.widget.NestedScrollView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.domain.News
 import com.example.presentation.R
 import com.example.presentation.databinding.FragmentDetailNewsDialogBinding
@@ -69,6 +71,15 @@ class DetailNewsDialog(private val news: News?) : BottomSheetDialogFragment() {
 
         binding.title.text = news?.title
         binding.textOfNews.text = news?.text
+
+        Glide.with(this)
+            .load(
+                if (!news?.urlPhoto.isNullOrEmpty()) "http://91.146.14.63:5000" + news?.urlPhoto
+                else R.drawable.news_photo
+            )
+            .error(R.drawable.news_photo)
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            .into(binding.simpleImage)
     }
 
     private fun closeFullImage(startHeight:Int , width: Int) {

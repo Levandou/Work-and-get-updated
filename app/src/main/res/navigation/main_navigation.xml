@@ -9,6 +9,7 @@
         android:id="@+id/mapFragment"
         android:name="com.example.tinkoffpractice.map.MapFragment"
         android:label="MapFragment" />
+
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.example.tinkoffpractice.news.NewsFragment"

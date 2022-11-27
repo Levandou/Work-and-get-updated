@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.domain.News
 import com.example.presentation.R
 import java.util.*
@@ -16,12 +18,23 @@ class NewsAdapter(private val onItemClick: (News?) -> Unit) : PagingDataAdapter<
     NewsDiffCallback()
 ) {
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        holder.nameOfOffice.text = getItem(position)?.tagTitle
-        holder.dateOfCreation.text = getItem(position)?.dataOfCreation
-        holder.text.text = getItem(position)?.title
+        holder.apply {
+            nameOfOffice.text = getItem(position)?.tagTitle
+            dateOfCreation.text = getItem(position)?.dataOfCreation
+            text.text = getItem(position)?.title
 
-        holder.itemView.setOnClickListener {
-            onItemClick(getItem(position))
+            Glide.with(this.itemView)
+                .load(
+                    if (!getItem(position)?.urlPhoto.isNullOrEmpty()) "http://91.146.14.63:5000" + getItem(position)?.urlPhoto
+                    else R.drawable.news_photo
+                )
+                .error(R.drawable.news_photo)
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .into(ivNews)
+
+            itemView.setOnClickListener {
+                onItemClick(getItem(position))
+            }
         }
     }
 

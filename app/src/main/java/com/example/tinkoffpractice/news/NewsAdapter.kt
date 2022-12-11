@@ -25,7 +25,7 @@ class NewsAdapter(private val onItemClick: (News?) -> Unit) : PagingDataAdapter<
 
             Glide.with(this.itemView)
                 .load(
-                    if (!getItem(position)?.urlPhoto.isNullOrEmpty()) "http://91.146.14.63:5000" + getItem(position)?.urlPhoto
+                    if (!getItem(position)?.urlPhoto.isNullOrEmpty()) "http://92.55.11.232:5000" + getItem(position)?.urlPhoto
                     else R.drawable.news_photo
                 )
                 .error(R.drawable.news_photo)

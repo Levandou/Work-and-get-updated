@@ -30,7 +30,7 @@ class PointDialogFragment(private val point: Points?) : BottomSheetDialogFragmen
         super.onViewCreated(view, savedInstanceState)
         Glide.with(this)
             .load(
-                if (!point?.photoPath.isNullOrEmpty()) "http://91.146.14.63:5000" + point?.photoPath
+                if (!point?.photoPath.isNullOrEmpty()) "http://92.55.11.232:5000" + point?.photoPath
                 else R.drawable.news_photo
             )
             .error(R.drawable.news_photo)

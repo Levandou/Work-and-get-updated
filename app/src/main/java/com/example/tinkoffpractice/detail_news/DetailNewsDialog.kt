@@ -74,7 +74,7 @@ class DetailNewsDialog(private val news: News?) : BottomSheetDialogFragment() {
 
         Glide.with(this)
             .load(
-                if (!news?.urlPhoto.isNullOrEmpty()) "http://91.146.14.63:5000" + news?.urlPhoto
+                if (!news?.urlPhoto.isNullOrEmpty()) "http://92.55.11.232:5000" + news?.urlPhoto
                 else R.drawable.news_photo
             )
             .error(R.drawable.news_photo)
